@@ -28,9 +28,12 @@ dependencies = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/chukfinley/droidrun-mcp-server"
-Repository = "https://github.com/chukfinley/droidrun-mcp-server"
-Issues = "https://github.com/chukfinley/droidrun-mcp-server/issues"
+Homepage = "https://github.com/hkbu-kennycheng/droidrun-mcp-server"
+Repository = "https://github.com/hkbu-kennycheng/droidrun-mcp-server"
+Issues = "https://github.com/hkbu-kennycheng/droidrun-mcp-server/issues"
 
 [project.scripts]
 droidrun-mcp = "server:main"
+
+[tool.hatch.build.targets.wheel]
+include = ["server.py"]
