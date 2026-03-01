@@ -88,12 +88,39 @@ droidrun test
 
 ---
 
-## Step 4: Install This MCP Server
+## Step 4: Configure Claude Code (using uvx)
+
+The easiest way to run this MCP server is directly from the GitHub repository using `uvx`, with no manual installation required.
+
+Add the following to your Claude Code configuration (`~/.claude.json`) under `mcpServers`:
+
+```json
+{
+  "mcpServers": {
+    "droidrun": {
+      "type": "stdio",
+      "command": "uvx",
+      "args": [
+        "--from",
+        "git+https://github.com/hkbu-kennycheng/droidrun-mcp-server",
+        "droidrun-mcp"
+      ],
+      "env": {}
+    }
+  }
+}
+```
+
+`uvx` will automatically fetch and run the server from GitHub each time it is invoked.
+
+---
+
+## Alternative: Manual Installation
 
 ### Clone the repository
 
 ```bash
-git clone https://github.com/chukfinley/droidrun-mcp-server.git
+git clone https://github.com/hkbu-kennycheng/droidrun-mcp-server.git
 cd droidrun-mcp-server
 ```
 
@@ -105,7 +132,7 @@ pip install droidrun mcp
 
 ---
 
-## Step 5: Configure Claude Code
+## Step 5: Configure Claude Code (manual install)
 
 Add the MCP server to your Claude Code configuration.
 
@@ -264,15 +291,18 @@ droidrun setup
 
 # 6. Enable accessibility service on device (manual step!)
 
-# 7. Clone this repo
-git clone https://github.com/chukfinley/droidrun-mcp-server.git
+# 7. Add to ~/.claude.json using uvx (recommended):
+# {
+#   "mcpServers": {
+#     "droidrun": {
+#       "type": "stdio",
+#       "command": "uvx",
+#       "args": ["--from", "git+https://github.com/hkbu-kennycheng/droidrun-mcp-server", "droidrun-mcp"]
+#     }
+#   }
+# }
 
-# 8. Install dependencies
-pip install droidrun mcp
-
-# 9. Add to ~/.claude.json (see Step 5 above)
-
-# 10. Restart Claude Code
+# 8. Restart Claude Code
 claude
 ```
 

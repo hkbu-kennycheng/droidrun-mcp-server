@@ -179,5 +179,9 @@ async def apps() -> str:
     return f"Apps ({len(packages)}):\n" + "\n".join(sorted(packages)[:30])
 
 
-if __name__ == "__main__":
+def main():
     mcp.run()
+
+
+if __name__ == "__main__":
+    main()
