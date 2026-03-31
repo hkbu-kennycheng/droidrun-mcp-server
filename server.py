@@ -27,7 +27,7 @@ async def get_tools():
     global _tools, _serial
 
     if _tools is None:
-        from droidrun import AdbTools
+        from droidrun.tools.adb import AdbTools
         from async_adbutils import adb
 
         devices = await adb.list()
